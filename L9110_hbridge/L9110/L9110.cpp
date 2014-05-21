@@ -32,16 +32,13 @@ void L9110::L9110() // setup constructor for the library
   int dirPinB8 = 8; // Hook to B-IA - Controls direction for motor B, high = forward, low = reverse
   int speedPinB10 = 10; // Hook to B-IB - Controls speed for motor B (PWM)
 
+  // Set pin modes
   pinMode(dirPinA, OUTPUT);
   pinMode(speedPinA, OUTPUT);
 
   pinMode(dirPinB, OUTPUT);
   pinMode(speedPinB, OUTPUT);
   
-//  speedA = 0; // Set speedA to zero
-//  speedB = 0; // Set speedB to zero
-//  dirA = 0; //Set variable "dirA" to 1 (forward)
-//  dirB = 0; //Set variable "dirB" to 1 (forward)
 }
 
 
@@ -54,7 +51,7 @@ void L9110::motorA(int dirA, int speedA) // Accept input for direction and speed
   if (1 == dirA) { // Direction for motor A
     digitalWrite(dirPinA, HIGH); // Go forward
   } else {
-    digitalWrite(dirPinA, LOW); // Go backward
+    digitalWrite(dirPinA, LOW); // Go backward (or stop if speed is set to "0")
   }
 }
 
@@ -67,6 +64,6 @@ void L9110::motorB(int dirB, int speedB) // Accept input for direction and speed
   if (1 == dirB) { // Direction for motor A
     digitalWrite(dirPinB, HIGH); // Go forward
   } else {
-    digitalWrite(dirPinB, LOW); // Go backward
+    digitalWrite(dirPinB, LOW); // Go backward (or stop if speed is set to "0")
   }
 }
