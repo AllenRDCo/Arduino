@@ -18,6 +18,11 @@
    |H |H || L| L|
    |------------|
 
+   Example to use library, set L9110.motorA(1,255) to have motor A go forward at full speed
+   Setting L9110.motorA(0,255) will run motor A backwards at full speed
+   Setting L9110.motorA(0,0) will put motor at full stop
+   Use integer from 0 to 255 to control speed of motor 
+     
 */
 
 #ifndef L9110_h
