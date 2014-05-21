@@ -22,7 +22,7 @@
 #include "Arduino.h"
 #include "L9110.h"
 
-void L9110::L9110() // setup constructor for the library
+L9110::L9110() // setup constructor for the library
 {
   // Pin assignment (Hard encoding these for now)
   // motor A
@@ -45,7 +45,7 @@ void L9110::motorA(int dirA, int speedA) // Accept input for direction and speed
 {
   //set direction
   if (1 == dirA) { // Direction for motor A
-    speedA -= 255 // Must invert speed # to retain sanity for forward
+    speedA -= 255; // Must invert speed # to retain sanity for forward
     digitalWrite(dirPinA, HIGH); // Go forward
     analogWrite(speedPinA, speedA); // 255 = full stop, 0 = full power
   } else {
@@ -58,7 +58,7 @@ void L9110::motorB(int dirB, int speedB) // Accept input for direction and speed
 {
   //set direction
   if (1 == dirB) { // Direction for motor B
-    speedB -= 255 // Must invert speed # to retain sanity for forward
+    speedB -= 255; // Must invert speed # to retain sanity for forward
     analogWrite(speedPinB, speedB); // 255 = full stop, 0 = full power
     digitalWrite(dirPinB, HIGH); // Go forward
   } else {
