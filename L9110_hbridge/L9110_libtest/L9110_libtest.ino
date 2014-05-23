@@ -27,8 +27,8 @@ void loop()
   L9110.motorA(1,127); //run both motors forward at half speed
   L9110.motorB(1,127);
   delay(5000);
-  L9110.motorA(1,127); //run motors at half speed in opposite directions
-  L9110.motorB(0,127);
+  L9110.motorA(1,255); //run motors at half speed in opposite directions
+  L9110.motorB(0,255);
   delay(5000);
   L9110.motorA(0,0); //full stop on both motors
   L9110.motorB(0,0);
