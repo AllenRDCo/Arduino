@@ -4,12 +4,20 @@
 
 L9110 L9110;
 
+  // setup pin for LiPo monitor
+  LiPoMonitor = 2
+
+
 void setup()
 {
+  pinMode(LiPoMonitor, INPUT);
 }
 
 void loop()
 {
+  if (digitalRead(LiPoMonitor) == HIGH) 
+
+
   L9110.motorA(1,255); //run both motors forward at full speed
   L9110.motorB(1,255);
   delay(5000);
