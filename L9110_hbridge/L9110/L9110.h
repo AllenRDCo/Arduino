@@ -36,6 +36,13 @@ class L9110
     L9110();
     void motorA(int dirA, int speedA);
     void motorB(int dirB, int speedB);
+    void forward();
+    void reverse();
+    void forwardSlow();
+    void reverseSlow();
+    void left();
+    void right();
+    void fullStop();
   private:
     // motor A
     int dirPinA = 7; // Hook to A-IA - Controls direction for motor A, high = forward, low = reverse

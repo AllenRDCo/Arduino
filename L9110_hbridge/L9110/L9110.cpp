@@ -25,10 +25,10 @@
 L9110::L9110() // setup constructor for the library
 {
   // Pin assignment (Hard encoding these for now)
-  // motor A
+  // motor A (Right hand motor)
   int dirPinA = 7; // Hook to A-IA - Controls direction for motor A, high = forward, low = reverse
   int speedPinA = 9; // Hook to A-IB - Controls speed for motor A (PWM)
-  // motor B
+  // motor B (Left hand motor)
   int dirPinB = 8; // Hook to B-IA - Controls direction for motor B, high = forward, low = reverse
   int speedPinB = 10; // Hook to B-IB - Controls speed for motor B (PWM)
 
@@ -65,4 +65,60 @@ void L9110::motorB(int dirB, int speedB) // Accept input for direction and speed
     analogWrite(speedPinB, speedB); // 0 = full stop, 255 = full power
     digitalWrite(dirPinB, LOW); // Go backward
   }
+}
+
+void L9110::forward() // run both motors forward at full speed
+{
+  digitalWrite(dirPinA, HIGH);
+  digitalWrite(speedPinA, LOW);
+  digitalWrite(dirPinB, HIGH);
+  digitalWrite(speedPinB, LOW);
+}
+
+void L9110::reverse() // run both motors reverse at full speed
+{
+  digitalWrite(dirPinA, LOW);
+  digitalWrite(speedPinA, HIGH);
+  digitalWrite(dirPinB, LOW);
+  digitalWrite(speedPinB, HIGH);
+}
+
+void L9110::forwardSlow() // run both motors forward at half speed
+{
+  digitalWrite(dirPinA, HIGH);
+  analogWrite(speedPinA, 128); // inverted value to match motor B speed
+  digitalWrite(dirPinB, HIGH);
+  analogWrite(speedPinB, 127);
+}
+
+void L9110::reverseSlow() // run both motors reverse at half speed
+{
+  digitalWrite(dirPinA, LOW);
+  analogWrite(speedPinA, 128); // inverted value to match motor B speed
+  digitalWrite(dirPinB, LOW);
+  analogWrite(speedPinB, 127);
+}
+
+void L9110::left() // run motor A (right motor) forward full speed and motor B (left motor) reverse full speed
+{
+  digitalWrite(dirPinA, HIGH);
+  digitalWrite(speedPinA, LOW);
+  digitalWrite(dirPinB, LOW);
+  digitalWrite(speedPinB, HIGH);
+}
+
+void L9110::right() // run motor A (right motor) reverse full speed and motor B (left motor) forward full speed
+{
+  digitalWrite(dirPinA, LOW);
+  digitalWrite(speedPinA, HIGH);
+  digitalWrite(dirPinB, HIGH);
+  digitalWrite(speedPinB, LOW);
+}
+
+void L9110::fullStop() // bring motors to full stop
+{
+  digitalWrite(dirPinA, LOW);
+  digitalWrite(speedPinA, LOW);
+  digitalWrite(dirPinB, LOW);
+  digitalWrite(speedPinB, LOW);
 }
