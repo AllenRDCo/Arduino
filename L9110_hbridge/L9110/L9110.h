@@ -46,10 +46,10 @@ class L9110
   private:
     // motor A
     int dirPinA = 7; // Hook to A-IA - Controls direction for motor A, high = forward, low = reverse
-    int speedPinA = 9; // Hook to A-IB - Controls speed for motor A (PWM)
+    int speedPinA = 5; // Hook to A-IB - Controls speed for motor A (PWM)
     // motor B
     int dirPinB = 8; // Hook to B-IA - Controls direction for motor B, high = forward, low = reverse
-    int speedPinB = 10; // Hook to B-IB - Controls speed for motor B (PWM)
+    int speedPinB = 6; // Hook to B-IB - Controls speed for motor B (PWM)
 };
 
 #endif
